@@ -4,6 +4,7 @@ import "../styles/chat.scss";
 import simage from "../assets/simage.jpg";
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000/api";
+console.log("👉 Using Backend URL:", API_URL);
 
 export default function ChatBox() {
   const [messages, setMessages] = useState([]);
@@ -12,6 +13,7 @@ export default function ChatBox() {
   const [isTyping, setIsTyping] = useState(false);
 
   const sendMessage = async (customInput) => {
+    
     const text = customInput || input;
     if (!text.trim()) return;
 
@@ -21,11 +23,10 @@ export default function ChatBox() {
     setIsTyping(true); // show typing indicator
 
     try {
-      const res = await axios.post(`${API_URL}/chat`, {
+      const res = await axios.post(`${API_URL}/api/chat`, {
         query: text,
         sessionId,
       });
-
       setSessionId(res.data.sessionId);
 
       // Add bot reply
