@@ -23,7 +23,7 @@ export default function ChatBox() {
     setIsTyping(true); // show typing indicator
 
     try {
-      const res = await axios.post(`${API_URL}/api/chat`, {
+      const res = await axios.post(`${API_URL}/chat`, {
         query: text,
         sessionId,
       });
