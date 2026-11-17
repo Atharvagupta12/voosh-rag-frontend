@@ -1,0 +1,80 @@
+@mixin light {
+  --bg: #f7f4ee;
+  --bg-elev: #fbf9f5;
+  --surface: #ffffff;
+  --surface-2: #f1ede5;
+  --surface-3: #e9e3d8;
+  --ink: #191714;
+  --ink-2: #3a3731;
+  --muted: #6b665c;
+  --faint: #9c968a;
+  --line: #e6e0d5;
+  --line-strong: #d4ccbe;
+  --accent: #d24f17;
+  --accent-hover: #b8430f;
+  --accent-ink: #ffffff;
+  --accent-soft: #fbe8dd;
+  --accent-text: #a8400f;
+  --user-bg: #191714;
+  --user-ink: #f7f4ee;
+  --danger: #b42318;
+  --danger-soft: #fdeceb;
+  --ok: #2f8a4c;
+  --shadow-sm: 0 1px 2px rgb(25 23 20 / 0.06);
+  --shadow-md: 0 1px 2px rgb(25 23 20 / 0.05), 0 8px 24px -8px rgb(25 23 20 / 0.12);
+  --shadow-lg: 0 2px 4px rgb(25 23 20 / 0.04), 0 24px 60px -16px rgb(25 23 20 / 0.22);
+  --glow: rgb(210 79 23 / 0.16);
+  color-scheme: light;
+}
+
+@mixin dark {
+  --bg: #0f0e0c;
+  --bg-elev: #141311;
+  --surface: #1a1916;
+  --surface-2: #22201c;
+  --surface-3: #2b2924;
+  --ink: #f2ede4;
+  --ink-2: #d6d0c4;
+  --muted: #a19b8f;
+  --faint: #6f6a60;
+  --line: #2a2823;
+  --line-strong: #3b3832;
+  --accent: #f0703a;
+  --accent-hover: #ff8752;
+  --accent-ink: #1a0d06;
+  --accent-soft: #33190d;
+  --accent-text: #ff9a6b;
+  --user-bg: #f2ede4;
+  --user-ink: #15130f;
+  --danger: #f37b72;
+  --danger-soft: #3a1714;
+  --ok: #5cc27f;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px -10px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 2px 6px rgb(0 0 0 / 0.3), 0 30px 70px -20px rgb(0 0 0 / 0.75);
+  --glow: rgb(240 112 58 / 0.14);
+  color-scheme: dark;
+}
+
+:root {
+  @include light;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --container: 1120px;
+  --gutter: clamp(16px, 4vw, 32px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  @include dark;
+}

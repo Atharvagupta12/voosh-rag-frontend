@@ -1,0 +1,17 @@
+@mixin shimmer {
+  background: linear-gradient(90deg, var(--surface-2) 0%, var(--surface-3) 50%, var(--surface-2) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+@mixin bp-sm {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin bp-md {
+  @media (max-width: 920px) {
+    @content;
+  }
+}
